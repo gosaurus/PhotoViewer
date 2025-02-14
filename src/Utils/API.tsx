@@ -1,9 +1,18 @@
 import fetch from 'node-fetch';
 
-const getImageAPI = async (): Promise<{download_url: string}[]> => {
+type Response = {
+    id: string,
+    author: string,
+    width: number,
+    height: number,
+    url: string
+    download_url: string,
+}
+
+const getImageAPI = async (): Promise<Response[]> => {
     const response = await fetch("https://picsum.photos/v2/list");
     if(response.status !== 200) {
         throw Error(`Status code ${response.status} received.`);
     }          
-    return(response.json() as Promise<{download_url: string}[]>);
+    return(response.json() as Promise<Response[]>);
 }
