@@ -8,7 +8,6 @@ import { useState } from 'react';
 function App() {
   const [currentImage, setCurrentImage] = useState({
     src: imageUrls[1],
-    index: 0,
   });
   
   return (
@@ -19,14 +18,12 @@ function App() {
         <p>Click on an image below to display it in a large size.</p>
       </div>
       <div className="thumbnailContainer">
-          {imageUrls.map((src: string, index: number) =>
-            <ImageSelector  
-              key={index}
-              className={currentImage.index === index? 'activeThumbnail': ''}
-              src={src}
-              onClick={() => setCurrentImage({src, index})} 
-            />
-          )}
+        {
+          imageUrls.map((src: string) => 
+          <ImageSelector onClick={() => setCurrentImage({src})} src={src} 
+            className={currentImage.src===src? 'activeThumbnail': ''}
+          />)
+        }
       </div>  
     </>
   )
