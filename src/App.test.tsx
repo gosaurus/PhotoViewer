@@ -4,8 +4,6 @@ import { ImageSelector } from './Components/ImageSelector/ImageSelector';
 import { imageUrls } from './Utils/imageUrls'
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-
-// const images = ["https://picsum.photos/id/16/2500/1667.jpg", "https://picsum.photos/id/20/3670/2462.jpg","https://picsum.photos/id/10/2500/1667.jpg"]
   
 test('Displayed image url to match url of clicked thumbnail', async () => {
   const user = userEvent.setup();
